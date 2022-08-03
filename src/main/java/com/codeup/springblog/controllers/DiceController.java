@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class DiceController {
 
     @GetMapping("/rolldice")
-    @ResponseBody
     public String rollDice(){return "rollDice";}
 
     @GetMapping("/rolldice/{n}")

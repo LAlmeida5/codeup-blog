@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Rolled the Dice!</title>
 </head>
 <body>
+    <h1>You selected <span th:text="${num}">n</span> for your guess! </h1>
+    <div>
+        The first roll was <span th:text="${roll1}">First Roll</span>. Match = <span th:text="${firstCheck}"></span>
+    </div>
+    <div>
+        The second roll was <span th:text="${roll2}">Second Roll</span>. Match = <span th:text="${secondCheck}"></span>
+    </div>
+    <div>
+        The third roll was <span th:text="${roll3}">Third Roll</span>. Match = <span th:text="${thirdCheck}"></span>
+    </div>
+    <div>
+        The fourth roll was <span th:text="${roll4}">Fourth Roll</span>. Match = <span th:text="${fourthCheck}"></span>
+    </div>
+    <div>
+        The fifth roll was <span th:text="${roll5}">Fifth Roll</span>. Match = <span th:text="${fifthCheck}"></span>
+    </div>
+    <div>
+        The sixth roll was <span th:text="${roll6}">Sixth Roll</span>. Match = <span th:text="${sixthCheck}"></span>
+    </div>
 
 </body>
 </html>
