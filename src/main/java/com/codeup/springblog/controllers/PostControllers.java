@@ -1,5 +1,6 @@
 package com.codeup.springblog.controllers;
 
+import com.codeup.springblog.repositories.PostRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -8,6 +9,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class PostControllers {
+
+    private final PostRepository postDao;
+
+    public PostControllers(PostRepository postDao) {
+        this.postDao = postDao;
+    }
+
 
     @PostMapping("/posts")
     @ResponseBody
