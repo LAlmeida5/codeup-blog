@@ -19,6 +19,10 @@ public class Dog {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "dog")
     private List<Toy> toys;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "dogs_vets", joinColumns = {@JoinColumn(name = "dog_id")}, inverseJoinColumns = {@JoinColumn(name = "vet_id")})
+    private List<Vet> vets;
+
     public Dog() {
     }
 

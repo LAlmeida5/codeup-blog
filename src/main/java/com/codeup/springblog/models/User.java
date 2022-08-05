@@ -11,14 +11,15 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(length = 50)
+    @Column(length = 50, nullable = false)
     private String username;
 
-    @Column(length = 50)
+    @Column(length = 50, nullable = false)
     private String email;
 
-    @Column(length = 50)
+    @Column(nullable = false)
     private String password;
+
     //links the relationship between Post model.
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Post> posts;

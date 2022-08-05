@@ -5,10 +5,7 @@ import com.codeup.springblog.repositories.PostRepository;
 import com.codeup.springblog.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,13 +36,13 @@ public class PostControllers {
         return "<h1>view an individual post</h1>";
     }
 
-    @GetMapping("/posts/create")
-    public String getPage(){
+    @RequestMapping(path = "/posts/create", method = RequestMethod.GET)
+    public String viewCreateForm(){
         return "posts/create";
     }
 
     @PostMapping("/posts/create")
-    public String postPage(){
-        return "<h1>create a new post</h1>";
+    public String savePost(@RequestParam(name = "title") String title, @RequestParam(name = "body") String body){
+        return "redirect:/posts";
     }
 }
