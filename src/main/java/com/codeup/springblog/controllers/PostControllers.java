@@ -2,6 +2,7 @@ package com.codeup.springblog.controllers;
 
 import com.codeup.springblog.models.Post;
 import com.codeup.springblog.repositories.PostRepository;
+import com.codeup.springblog.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,17 +16,20 @@ import java.util.List;
 @Controller
 public class PostControllers {
 
-    private final PostRepository postDao;
+    //configures the injection of repositories into the post controller.
+    private PostRepository postsDao;
+    private UserRepository usersDao;
 
-    public PostControllers(PostRepository postDao) {
-        this.postDao = postDao;
+    public PostControllers(PostRepository postsDao, UserRepository usersDao) {
+        this.postsDao = postsDao;
+        this.usersDao = usersDao;
     }
-
+    //end of injection.
 
     @GetMapping("/posts")
     public String indexPage(Model model){
 
-        model.addAttribute("posts", postDao.findAll());
+        model.addAttribute("posts", postsDao.findAll());
 
         return "posts/index";
     }
@@ -37,7 +41,7 @@ public class PostControllers {
 
     @GetMapping("/posts/create")
     public String getPage(){
-        return "<h1>view the form for creating a post</h1>";
+        return "posts/create";
     }
 
     @PostMapping("/posts/create")

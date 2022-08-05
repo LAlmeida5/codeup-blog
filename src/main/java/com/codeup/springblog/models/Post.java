@@ -15,6 +15,11 @@ public class Post {
     @Column(nullable = false)
     private String body;
 
+    //links the relationship between User model
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     public Post() {
     }
 
